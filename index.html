@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <title>FamilyPlates — Make family meals feel simple</title>
     <meta name="description" content="A self-hosted family meal planner for recipes, weekly planning, grocery lists, fridge-ready printouts, and Google Calendar sync.">
-    <meta name="theme-color" content="#fffaf3">
+    <meta id="theme-color" name="theme-color" content="#fffaf3">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://familyplates.org/">
     <meta property="og:title" content="FamilyPlates — Make family meals feel simple">
@@ -23,6 +24,7 @@
         var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
         document.documentElement.dataset.theme = dark ? "dark" : "light";
         document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        document.getElementById("theme-color").content = dark ? "#080f1d" : "#fffaf3";
       })();
     </script>
     <link rel="stylesheet" href="styles.css">
@@ -71,7 +73,7 @@
           <div class="product-stage" aria-label="Preview of the FamilyPlates weekly meal planner">
             <div class="sun-shape" aria-hidden="true"></div>
             <figure class="product-screenshot hero-screenshot">
-              <img src="assets/screenshots/planner.png" alt="FamilyPlates weekly planner showing breakfast, lunch, and dinner across seven days" width="1440" height="857" fetchpriority="high">
+              <img src="assets/screenshots/planner.png" alt="FamilyPlates weekly planner showing breakfast, lunch, and dinner across seven days" width="1216" height="526" fetchpriority="high">
               <figcaption>Actual FamilyPlates weekly planner</figcaption>
             </figure>
           </div>
@@ -125,25 +127,25 @@
             <p>No feeds, streaks, or meal-planning theater. Just practical tools that make the week easier.</p>
           </div>
 
-          <div class="feature-grid">
-            <article class="feature feature-wide feature-plan">
+          <div class="feature-showcase">
+            <article class="feature feature-plan">
               <div class="feature-copy"><span class="mini-label">MEAL PLANNER</span><h3>See the whole week at a glance.</h3><p>Plan breakfast, lunch, and dinner. Assign a cook, choose a time, and turn leftovers into tomorrow’s plan.</p></div>
-              <figure class="feature-screenshot"><img src="assets/screenshots/planner.png" alt="The real FamilyPlates seven-day meal-planning screen" width="1440" height="857" loading="lazy"></figure>
+              <figure class="feature-screenshot"><img src="assets/screenshots/planner.png" alt="The real FamilyPlates seven-day meal-planning grid" width="1216" height="526" loading="lazy"></figure>
+            </article>
+
+            <article class="feature feature-recipes">
+              <div class="feature-copy"><span class="mini-label">RECIPE VAULT</span><h3>Keep every family favorite close.</h3><p>Import recipes from the web, browse by meal or tag, and let everyone share what they’re craving.</p></div>
+              <figure class="feature-screenshot"><img src="assets/screenshots/recipes.png" alt="The real FamilyPlates recipe vault showing six family recipes" width="1152" height="732" loading="lazy"></figure>
             </article>
 
             <article class="feature feature-print">
               <div class="feature-copy"><span class="mini-label">FRIDGE READY</span><h3>A plan everyone can see.</h3><p>Print a clean, high-contrast weekly or monthly calendar on one sheet.</p></div>
-              <figure class="feature-screenshot feature-screenshot-bottom"><img src="assets/screenshots/fridge-printout.png" alt="The real FamilyPlates weekly refrigerator print preview" width="1440" height="857" loading="lazy"></figure>
+              <figure class="feature-screenshot"><img src="assets/screenshots/fridge-printout.png" alt="The real FamilyPlates one-sheet weekly refrigerator view" width="1152" height="480" loading="lazy"></figure>
             </article>
 
             <article class="feature feature-grocery">
               <div class="feature-copy"><span class="mini-label">SMART GROCERY LIST</span><h3>From plan to aisle.</h3><p>Ingredients are combined, grouped by aisle, and checked against pantry staples.</p></div>
-              <figure class="feature-screenshot feature-screenshot-bottom"><img src="assets/screenshots/grocery-list.png" alt="The real FamilyPlates grocery list organized by supermarket aisle" width="1440" height="857" loading="lazy"></figure>
-            </article>
-
-            <article class="feature feature-wide feature-recipes">
-              <div class="feature-copy"><span class="mini-label">RECIPE VAULT</span><h3>Keep every family favorite close.</h3><p>Import recipes from the web, browse by meal or tag, and let everyone share what they’re craving.</p></div>
-              <figure class="feature-screenshot"><img src="assets/screenshots/recipes.png" alt="The real FamilyPlates recipe vault showing filterable family recipes" width="1440" height="857" loading="lazy"></figure>
+              <figure class="feature-screenshot"><img src="assets/screenshots/grocery-list.png" alt="The real FamilyPlates grocery list showing a complete produce aisle" width="768" height="577" loading="lazy"></figure>
             </article>
           </div>
         </div>

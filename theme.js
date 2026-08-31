@@ -1,4 +1,5 @@
 const themeButton = document.querySelector(".theme-toggle")
+const themeColor = document.querySelector("#theme-color")
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
 
 function savedTheme() {
@@ -13,6 +14,7 @@ function applyTheme(theme) {
   const nextTheme = theme === "dark" ? "dark" : "light"
   document.documentElement.dataset.theme = nextTheme
   document.documentElement.style.colorScheme = nextTheme
+  if (themeColor) themeColor.content = nextTheme === "dark" ? "#080f1d" : "#fffaf3"
 
   if (themeButton) {
     const action = nextTheme === "dark" ? "light" : "dark"
