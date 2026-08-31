@@ -17,7 +17,16 @@
     <meta name="twitter:image" content="https://familyplates.org/og.png">
     <link rel="canonical" href="https://familyplates.org/">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <script>
+      (function () {
+        var saved = localStorage.getItem("familyplates-website-theme");
+        var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -33,6 +42,10 @@
           <a href="#features">Features</a>
           <a href="#self-host">Self-host</a>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+        </button>
         <a class="button button-small button-dark" href="https://github.com/Elevate08/familyplates">View on GitHub <span aria-hidden="true">↗</span></a>
       </div>
     </header>
@@ -57,49 +70,10 @@
 
           <div class="product-stage" aria-label="Preview of the FamilyPlates weekly meal planner">
             <div class="sun-shape" aria-hidden="true"></div>
-            <div class="app-window">
-              <div class="app-topbar">
-                <div class="app-brand"><span class="chef-mark" aria-hidden="true">♨</span> FamilyPlates</div>
-                <div class="app-tabs" aria-hidden="true"><span class="active">Plan</span><span>Recipes</span><span>Pantry</span></div>
-                <div class="avatar" aria-hidden="true">DS</div>
-              </div>
-              <div class="planner-head">
-                <div>
-                  <small>This week</small>
-                  <strong>August 31 – September 6</strong>
-                </div>
-                <span class="print-pill" aria-hidden="true">Print week</span>
-              </div>
-              <div class="week-grid">
-                <article class="day-card">
-                  <div class="day-head"><span>MON</span><strong>31</strong></div>
-                  <div class="meal-photo meal-tomato" role="img" aria-label="Tomato pasta illustration"><span>🍝</span></div>
-                  <p class="meal-type">DINNER</p>
-                  <h2>Roasted tomato pasta</h2>
-                  <p class="cook">Cook: Jamie · 6:00 PM</p>
-                </article>
-                <article class="day-card featured-day">
-                  <div class="day-head"><span>TUE</span><strong>01</strong></div>
-                  <div class="meal-photo meal-taco" role="img" aria-label="Taco bowls illustration"><span>🥑</span></div>
-                  <p class="meal-type">DINNER</p>
-                  <h2>Weeknight taco bowls</h2>
-                  <p class="cook">Cook: Dad · 5:30 PM</p>
-                </article>
-                <article class="day-card">
-                  <div class="day-head"><span>WED</span><strong>02</strong></div>
-                  <div class="meal-photo meal-soup" role="img" aria-label="Soup and bread illustration"><span>🥣</span></div>
-                  <p class="meal-type">DINNER</p>
-                  <h2>Garden vegetable soup</h2>
-                  <p class="cook">Cook: Morgan · 6:15 PM</p>
-                </article>
-              </div>
-              <div class="planner-foot">
-                <span><i class="status-dot"></i> 3 dinners planned</span>
-                <span>12 grocery items <b aria-hidden="true">→</b></span>
-              </div>
-            </div>
-            <div class="floating-note note-calendar" aria-hidden="true"><span>✓</span><div><b>Calendar synced</b><small>3 meals added</small></div></div>
-            <div class="floating-note note-grocery" aria-hidden="true"><span>🛒</span><div><b>Grocery list ready</b><small>Sorted by aisle</small></div></div>
+            <figure class="product-screenshot hero-screenshot">
+              <img src="assets/screenshots/planner.png" alt="FamilyPlates weekly planner showing breakfast, lunch, and dinner across seven days" width="1440" height="857" fetchpriority="high">
+              <figcaption>Actual FamilyPlates weekly planner</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -154,27 +128,22 @@
           <div class="feature-grid">
             <article class="feature feature-wide feature-plan">
               <div class="feature-copy"><span class="mini-label">MEAL PLANNER</span><h3>See the whole week at a glance.</h3><p>Plan breakfast, lunch, and dinner. Assign a cook, choose a time, and turn leftovers into tomorrow’s plan.</p></div>
-              <div class="mini-week" aria-hidden="true">
-                <div><small>MON</small><span>🍲</span><b>Soup night</b></div>
-                <div class="selected"><small>TUE</small><span>🌮</span><b>Taco bowls</b></div>
-                <div><small>WED</small><span>🍝</span><b>Pasta</b></div>
-                <div><small>THU</small><span>🥡</span><b>Leftovers</b></div>
-              </div>
+              <figure class="feature-screenshot"><img src="assets/screenshots/planner.png" alt="The real FamilyPlates seven-day meal-planning screen" width="1440" height="857" loading="lazy"></figure>
             </article>
 
             <article class="feature feature-print">
               <div class="feature-copy"><span class="mini-label">FRIDGE READY</span><h3>A plan everyone can see.</h3><p>Print a clean, high-contrast weekly or monthly calendar on one sheet.</p></div>
-              <div class="paper" aria-hidden="true"><b>THIS WEEK</b><span>MON&nbsp;&nbsp; Tomato pasta</span><span>TUE&nbsp;&nbsp;&nbsp; Taco bowls</span><span>WED&nbsp;&nbsp; Vegetable soup</span><i></i></div>
+              <figure class="feature-screenshot feature-screenshot-bottom"><img src="assets/screenshots/fridge-printout.png" alt="The real FamilyPlates weekly refrigerator print preview" width="1440" height="857" loading="lazy"></figure>
             </article>
 
             <article class="feature feature-grocery">
               <div class="feature-copy"><span class="mini-label">SMART GROCERY LIST</span><h3>From plan to aisle.</h3><p>Ingredients are combined, grouped by aisle, and checked against pantry staples.</p></div>
-              <ul class="grocery-preview" aria-hidden="true"><li><span class="check done">✓</span><s>Avocados</s><small>Produce</small></li><li><span class="check"></span><b>Black beans</b><small>Canned goods</small></li><li><span class="check"></span><b>Corn tortillas</b><small>Bakery</small></li></ul>
+              <figure class="feature-screenshot feature-screenshot-bottom"><img src="assets/screenshots/grocery-list.png" alt="The real FamilyPlates grocery list organized by supermarket aisle" width="1440" height="857" loading="lazy"></figure>
             </article>
 
-            <article class="feature feature-wide feature-calendar">
-              <div class="feature-copy"><span class="mini-label">GOOGLE CALENDAR</span><h3>Dinner shows up where life already happens.</h3><p>Sync meal times, cook assignments, prep details, and ingredients to your shared family calendar.</p></div>
-              <div class="calendar-preview" aria-hidden="true"><div class="cal-date"><small>SEP</small><strong>1</strong></div><div><b>Weeknight taco bowls</b><span>5:30 PM · Dinner · Dad is cooking</span></div><span class="synced">✓ Synced</span></div>
+            <article class="feature feature-wide feature-recipes">
+              <div class="feature-copy"><span class="mini-label">RECIPE VAULT</span><h3>Keep every family favorite close.</h3><p>Import recipes from the web, browse by meal or tag, and let everyone share what they’re craving.</p></div>
+              <figure class="feature-screenshot"><img src="assets/screenshots/recipes.png" alt="The real FamilyPlates recipe vault showing filterable family recipes" width="1440" height="857" loading="lazy"></figure>
             </article>
           </div>
         </div>
