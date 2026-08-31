@@ -4,6 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+
+    <!--
+      Content Security Policy (defence in depth).
+      GitHub Pages cannot set response headers, so this is delivered as a meta tag.
+      Caveat: `frame-ancestors` and `report-uri` are IGNORED in meta-delivered CSP,
+      so clickjacking cannot be blocked from here. Acceptable: this page has no
+      authenticated state or state-changing action to hijack.
+
+      The script-src hash covers the inline theme-init script below. If you edit
+      that script — even its whitespace — regenerate the hash:
+          ./tools/csp-hash.py --check     # verify
+          ./tools/csp-hash.py --write     # verify and update in place
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      base-uri 'none';
+      object-src 'none';
+      form-action 'none';
+      frame-src 'none';
+      connect-src 'none';
+      script-src 'self' 'sha256-yIvFkj6d/mOTd+FuOQvXvv1QdsbQGqqoces3p1VAVmk=';
+      style-src 'self' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data:;
+      upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>FamilyPlates — Effortless, Self-Hosted Family Meal Planning</title>
     <meta name="description" content="Eliminate daily dinner chaos. Collaborative weekly meal planning, aisle-organized grocery lists, 1-page fridge calendar printouts, and real-time Google Calendar sync. 100% free & self-hosted.">
     <meta id="theme-color" name="theme-color" content="#faf8f5">
@@ -623,6 +649,8 @@
             <!-- Snippet 1: Docker Compose File -->
             <div class="terminal-snippet active" id="snippet-compose">
               <pre><code><span class="token-comment"># docker-compose.yml</span>
+<span class="token-comment"># Generate your own secret first — never ship the placeholder:</span>
+<span class="token-comment">#   echo "SECRET_KEY_BASE=$(openssl rand -hex 64)" &gt; .env</span>
 <span class="token-key">services:</span>
   <span class="token-key">familyplates:</span>
     <span class="token-property">image:</span> <span class="token-string">ghcr.io/elevate08/familyplates:latest</span>
@@ -632,7 +660,7 @@
       - <span class="token-string">"3000:80"</span>
     <span class="token-property">environment:</span>
       - <span class="token-var">RAILS_ENV=production</span>
-      - <span class="token-var">SECRET_KEY_BASE=replace_with_a_secure_random_hex_string</span>
+      - <span class="token-var">SECRET_KEY_BASE=${SECRET_KEY_BASE:?generate one, see above}</span>
       - <span class="token-var">RAILS_SERVE_STATIC_FILES=true</span>
       - <span class="token-var">RAILS_LOG_TO_STDOUT=true</span>
     <span class="token-property">volumes:</span>
@@ -648,7 +676,10 @@
               <pre><code><span class="token-comment"># 1. Download official docker-compose.yml from repository</span>
 curl -sSL https://raw.githubusercontent.com/Elevate08/familyplates/master/docker-compose.yml -o docker-compose.yml
 
-<span class="token-comment"># 2. Start FamilyPlates in background</span>
+<span class="token-comment"># 2. Generate a unique secret (required — never reuse the placeholder)</span>
+echo "SECRET_KEY_BASE=$(openssl rand -hex 64)" &gt; .env
+
+<span class="token-comment"># 3. Start FamilyPlates in background</span>
 docker compose up -d</code></pre>
             </div>
 
@@ -671,6 +702,25 @@ docker run -d \
               <span class="terminal-status">After starting, visit <code>http://localhost:3000</code> to launch the setup wizard</span>
             </div>
           </div>
+        </div>
+
+        <div class="shell">
+          <aside class="exposure-notice" aria-labelledby="exposure-notice-title">
+            <svg class="exposure-notice-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"></path>
+              <path d="M12 8v4"></path>
+              <path d="M12 16h.01"></path>
+            </svg>
+            <div class="exposure-notice-body">
+              <h3 id="exposure-notice-title">Before you expose port 3000 to a public IP</h3>
+              <p>
+                Every snippet above publishes <code>"3000:80"</code>, which binds <strong>every</strong> network interface on the host, not just loopback. On a home LAN behind a router that is normally what you want &mdash; it is how tablets and phones in the house reach the app. On a VPS, a host with a public IP, or a router with port 3000 forwarded, the same line puts FamilyPlates on the open internet, where a 4-digit admin PIN is the only thing standing in front of your family&rsquo;s data.
+              </p>
+              <p>
+                If the host is reachable from outside your network, bind to loopback instead &mdash; <code>"127.0.0.1:3000:80"</code> &mdash; and reach it through a reverse proxy terminating HTTPS, a VPN such as WireGuard or Tailscale, or an SSH tunnel. Publish on every interface only when the machine sits on a network you trust.
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
 
