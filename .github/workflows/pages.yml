@@ -29,6 +29,9 @@ jobs:
         with:
           enablement: true
 
+      - name: Verify CSP script hash is current
+        run: ./tools/csp-hash.py --check
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v4
         with:

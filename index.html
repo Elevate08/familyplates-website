@@ -4,19 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+
+    <!--
+      Content Security Policy (defence in depth).
+      GitHub Pages cannot set response headers, so this is delivered as a meta tag.
+      Caveat: `frame-ancestors` and `report-uri` are IGNORED in meta-delivered CSP,
+      so clickjacking cannot be blocked from here. Acceptable: this page has no
+      authenticated state or state-changing action to hijack.
+
+      The script-src hash covers the inline theme-init script below. If you edit
+      that script — even its whitespace — regenerate the hash:
+          ./tools/csp-hash.py --check     # verify
+          ./tools/csp-hash.py --write     # verify and update in place
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      base-uri 'none';
+      object-src 'none';
+      form-action 'none';
+      frame-src 'none';
+      connect-src 'none';
+      script-src 'self' 'sha256-yIvFkj6d/mOTd+FuOQvXvv1QdsbQGqqoces3p1VAVmk=';
+      style-src 'self' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data:;
+      upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>FamilyPlates — Effortless, Self-Hosted Family Meal Planning</title>
-    <meta name="description" content="Eliminate daily dinner chaos. Collaborative weekly meal planning, aisle-organized grocery lists, 1-page fridge calendar printouts, and real-time Google Calendar sync. 100% free & self-hosted.">
+    <meta name="description" content="Eliminate daily dinner chaos. Collaborative weekly meal planning, aisle-organized grocery lists, 1-page fridge calendar printouts, and real-time Google Calendar sync. Open source, self-hostable, and installable on phones as a PWA.">
     <meta id="theme-color" name="theme-color" content="#faf8f5">
     
     <!-- Open Graph / Social Meta -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://familyplates.org/">
     <meta property="og:title" content="FamilyPlates — Effortless, Self-Hosted Family Meal Planning">
-    <meta property="og:description" content="Plan the week, shop from one aisle-organized list, and keep the whole family in sync. 100% self-hosted & open source.">
+    <meta property="og:description" content="Plan the week, shop from one aisle-organized list, and keep the whole family in sync. Open source, self-hostable, and installable on phones as a PWA.">
     <meta property="og:image" content="https://familyplates.org/og.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FamilyPlates — Effortless, Self-Hosted Family Meal Planning">
-    <meta name="twitter:description" content="Plan the week, shop from one aisle-organized list, and keep the whole family in sync. 100% self-hosted & open source.">
+    <meta name="twitter:description" content="Plan the week, shop from one aisle-organized list, and keep the whole family in sync. Open source, self-hostable, and installable on phones as a PWA.">
     <meta name="twitter:image" content="https://familyplates.org/og.png">
     <link rel="canonical" href="https://familyplates.org/">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -98,7 +124,7 @@
           <div class="hero-content">
             <div class="eyebrow-pill">
               <span class="pulse-dot" aria-hidden="true"></span>
-              <span>100% Free & Open Source · Self-Hosted Meal Planning</span>
+              <span>Open Source · Self-Host It · Installs on Phones</span>
             </div>
 
             <h1>Make family meals feel <span class="hero-highlight">effortless.</span></h1>
@@ -127,11 +153,11 @@
             <ul class="hero-trust-list" aria-label="Core advantages">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Zero Subscriptions</span>
+                <span>Installs on Phones as a PWA</span>
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>100% Private & Self-Hosted</span>
+                <span>Private & Self-Hostable</span>
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -159,8 +185,8 @@
       <section class="stats-strip" aria-label="Key highlights">
         <div class="shell stats-grid">
           <div class="stat-item">
-            <span class="stat-num">$0 / mo</span>
-            <span class="stat-label">Forever free & open source</span>
+            <span class="stat-num">MIT</span>
+            <span class="stat-label">Open source &mdash; self-host it yourself</span>
           </div>
           <div class="stat-item">
             <span class="stat-num">1-Click</span>
@@ -542,9 +568,9 @@
                   <line x1="12" y1="18" x2="12.01" y2="18"></line>
                 </svg>
               </div>
-              <span class="bento-badge">Mobile Ready</span>
-              <h3>Fast In-Store Mobile Checklist</h3>
-              <p>Responsive mobile interface designed for grocery aisles. Strike off items with one tap, see ingredient quantities, and stay organized without cell reception issues.</p>
+              <span class="bento-badge">Installable PWA</span>
+              <h3>Add It to Your Phone in One Tap</h3>
+              <p>FamilyPlates is a Progressive Web App: open it once on iPhone or Android and tap <em>Add to Home Screen</em>. It launches full screen with its own icon &mdash; no app store, no install file &mdash; and the aisle-by-aisle grocery checklist is built for one-handed tapping in the store.</p>
             </article>
 
             <!-- Bento Card 6: Zero Bloat -->
@@ -586,6 +612,10 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Guided 4-step first-launch setup wizard</span>
               </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Installable PWA &mdash; add it to any phone&rsquo;s home screen</span>
+              </li>
             </ul>
 
             <div class="quickstart-actions">
@@ -623,6 +653,8 @@
             <!-- Snippet 1: Docker Compose File -->
             <div class="terminal-snippet active" id="snippet-compose">
               <pre><code><span class="token-comment"># docker-compose.yml</span>
+<span class="token-comment"># Generate your own secret first — never ship the placeholder:</span>
+<span class="token-comment">#   echo "SECRET_KEY_BASE=$(openssl rand -hex 64)" &gt; .env</span>
 <span class="token-key">services:</span>
   <span class="token-key">familyplates:</span>
     <span class="token-property">image:</span> <span class="token-string">ghcr.io/elevate08/familyplates:latest</span>
@@ -632,7 +664,7 @@
       - <span class="token-string">"3000:80"</span>
     <span class="token-property">environment:</span>
       - <span class="token-var">RAILS_ENV=production</span>
-      - <span class="token-var">SECRET_KEY_BASE=replace_with_a_secure_random_hex_string</span>
+      - <span class="token-var">SECRET_KEY_BASE=${SECRET_KEY_BASE:?generate one, see above}</span>
       - <span class="token-var">RAILS_SERVE_STATIC_FILES=true</span>
       - <span class="token-var">RAILS_LOG_TO_STDOUT=true</span>
     <span class="token-property">volumes:</span>
@@ -648,7 +680,10 @@
               <pre><code><span class="token-comment"># 1. Download official docker-compose.yml from repository</span>
 curl -sSL https://raw.githubusercontent.com/Elevate08/familyplates/master/docker-compose.yml -o docker-compose.yml
 
-<span class="token-comment"># 2. Start FamilyPlates in background</span>
+<span class="token-comment"># 2. Generate a unique secret (required — never reuse the placeholder)</span>
+echo "SECRET_KEY_BASE=$(openssl rand -hex 64)" &gt; .env
+
+<span class="token-comment"># 3. Start FamilyPlates in background</span>
 docker compose up -d</code></pre>
             </div>
 
@@ -668,9 +703,28 @@ docker run -d \
 
             <div class="terminal-footer">
               <span class="terminal-status-dot" aria-hidden="true"></span>
-              <span class="terminal-status">After starting, visit <code>http://localhost:3000</code> to launch the setup wizard</span>
+              <span class="terminal-status">After starting, visit <code>http://localhost:3000</code> to launch the setup wizard &mdash; then open the same address on a phone and add it to the home screen</span>
             </div>
           </div>
+        </div>
+
+        <div class="shell">
+          <aside class="exposure-notice" aria-labelledby="exposure-notice-title">
+            <svg class="exposure-notice-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"></path>
+              <path d="M12 8v4"></path>
+              <path d="M12 16h.01"></path>
+            </svg>
+            <div class="exposure-notice-body">
+              <h3 id="exposure-notice-title">Before you expose port 3000 to a public IP</h3>
+              <p>
+                Every snippet above publishes <code>"3000:80"</code>, which binds <strong>every</strong> network interface on the host, not just loopback. On a home LAN behind a router that is normally what you want &mdash; it is how tablets and phones in the house reach the app. On a VPS, a host with a public IP, or a router with port 3000 forwarded, the same line puts FamilyPlates on the open internet, where a 4-digit admin PIN is the only thing standing in front of your family&rsquo;s data.
+              </p>
+              <p>
+                If the host is reachable from outside your network, bind to loopback instead &mdash; <code>"127.0.0.1:3000:80"</code> &mdash; and reach it through a reverse proxy terminating HTTPS, a VPN such as WireGuard or Tailscale, or an SSH tunnel. Publish on every interface only when the machine sits on a network you trust.
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -747,7 +801,7 @@ docker run -d \
       </div>
 
       <div class="shell footer-bottom">
-        <p>© 2026 FamilyPlates Project. Free and open source software.</p>
+        <p>© 2026 FamilyPlates Project. Open source software, released under the MIT License.</p>
         <div class="footer-bottom-links">
           <a href="https://github.com/Elevate08/familyplates" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span class="footer-dot" aria-hidden="true">·</span>
