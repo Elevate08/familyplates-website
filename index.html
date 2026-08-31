@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FamilyPlates — Make family meals feel simple</title>
+    <meta name="description" content="A self-hosted family meal planner for recipes, weekly planning, grocery lists, fridge-ready printouts, and Google Calendar sync.">
+    <meta name="theme-color" content="#fffaf3">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://familyplates.org/">
+    <meta property="og:title" content="FamilyPlates — Make family meals feel simple">
+    <meta property="og:description" content="Plan the week, shop from one list, and keep the whole family in sync.">
+    <meta property="og:image" content="https://familyplates.org/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FamilyPlates — Make family meals feel simple">
+    <meta name="twitter:description" content="Plan the week, shop from one list, and keep the whole family in sync.">
+    <meta name="twitter:image" content="https://familyplates.org/og.png">
+    <link rel="canonical" href="https://familyplates.org/">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="brand" href="#top" aria-label="FamilyPlates home">
+          <img src="icon.svg" alt="" width="36" height="36">
+          <span>FamilyPlates</span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="#how-it-works">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#self-host">Self-host</a>
+        </nav>
+        <a class="button button-small button-dark" href="https://github.com/Elevate08/familyplates">View on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Open source · Built for real families</p>
+            <h1>Make family meals feel <em>simple.</em></h1>
+            <p class="hero-lede">FamilyPlates brings recipes, weekly planning, grocery lists, and your family calendar together—without turning dinner into another project to manage.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/Elevate08/familyplates#-quick-start-docker-compose">Get FamilyPlates <span aria-hidden="true">→</span></a>
+              <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+            </div>
+            <ul class="hero-notes" aria-label="Project highlights">
+              <li><span aria-hidden="true">✓</span> Self-hosted</li>
+              <li><span aria-hidden="true">✓</span> Docker ready</li>
+              <li><span aria-hidden="true">✓</span> No subscription</li>
+            </ul>
+          </div>
+
+          <div class="product-stage" aria-label="Preview of the FamilyPlates weekly meal planner">
+            <div class="sun-shape" aria-hidden="true"></div>
+            <div class="app-window">
+              <div class="app-topbar">
+                <div class="app-brand"><span class="chef-mark" aria-hidden="true">♨</span> FamilyPlates</div>
+                <div class="app-tabs" aria-hidden="true"><span class="active">Plan</span><span>Recipes</span><span>Pantry</span></div>
+                <div class="avatar" aria-hidden="true">DS</div>
+              </div>
+              <div class="planner-head">
+                <div>
+                  <small>This week</small>
+                  <strong>August 31 – September 6</strong>
+                </div>
+                <span class="print-pill" aria-hidden="true">Print week</span>
+              </div>
+              <div class="week-grid">
+                <article class="day-card">
+                  <div class="day-head"><span>MON</span><strong>31</strong></div>
+                  <div class="meal-photo meal-tomato" role="img" aria-label="Tomato pasta illustration"><span>🍝</span></div>
+                  <p class="meal-type">DINNER</p>
+                  <h2>Roasted tomato pasta</h2>
+                  <p class="cook">Cook: Jamie · 6:00 PM</p>
+                </article>
+                <article class="day-card featured-day">
+                  <div class="day-head"><span>TUE</span><strong>01</strong></div>
+                  <div class="meal-photo meal-taco" role="img" aria-label="Taco bowls illustration"><span>🥑</span></div>
+                  <p class="meal-type">DINNER</p>
+                  <h2>Weeknight taco bowls</h2>
+                  <p class="cook">Cook: Dad · 5:30 PM</p>
+                </article>
+                <article class="day-card">
+                  <div class="day-head"><span>WED</span><strong>02</strong></div>
+                  <div class="meal-photo meal-soup" role="img" aria-label="Soup and bread illustration"><span>🥣</span></div>
+                  <p class="meal-type">DINNER</p>
+                  <h2>Garden vegetable soup</h2>
+                  <p class="cook">Cook: Morgan · 6:15 PM</p>
+                </article>
+              </div>
+              <div class="planner-foot">
+                <span><i class="status-dot"></i> 3 dinners planned</span>
+                <span>12 grocery items <b aria-hidden="true">→</b></span>
+              </div>
+            </div>
+            <div class="floating-note note-calendar" aria-hidden="true"><span>✓</span><div><b>Calendar synced</b><small>3 meals added</small></div></div>
+            <div class="floating-note note-grocery" aria-hidden="true"><span>🛒</span><div><b>Grocery list ready</b><small>Sorted by aisle</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="promise-strip" aria-label="FamilyPlates workflow">
+        <div class="shell promise-row">
+          <span>One calm place for the whole week</span>
+          <span class="divider" aria-hidden="true"></span>
+          <span>From “what’s for dinner?”</span>
+          <span class="arrow" aria-hidden="true">→</span>
+          <strong>to “it’s already planned.”</strong>
+        </div>
+      </section>
+
+      <section class="steps section" id="how-it-works">
+        <div class="shell">
+          <div class="section-heading split-heading">
+            <div><p class="kicker">A better weekly rhythm</p><h2>Plan once. Eat well all week.</h2></div>
+            <p>FamilyPlates keeps every part of meal planning connected, so each decision does more than one job.</p>
+          </div>
+          <ol class="step-list">
+            <li>
+              <span class="step-number">01</span>
+              <div class="step-icon warm" aria-hidden="true">⌕</div>
+              <h3>Save what you love</h3>
+              <p>Import recipes from the web, add family favorites, and keep them in one collection.</p>
+            </li>
+            <li>
+              <span class="step-number">02</span>
+              <div class="step-icon green" aria-hidden="true">▦</div>
+              <h3>Build the week</h3>
+              <p>Schedule meals, add notes, and assign cooks with a clear weekly or monthly view.</p>
+            </li>
+            <li>
+              <span class="step-number">03</span>
+              <div class="step-icon blue" aria-hidden="true">✓</div>
+              <h3>Shop and share</h3>
+              <p>Generate an aisle-ready grocery list, print the plan, and sync meals to Google Calendar.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="features section" id="features">
+        <div class="shell">
+          <div class="section-heading centered-heading">
+            <p class="kicker">Thoughtful by default</p>
+            <h2>Built around the way families actually eat.</h2>
+            <p>No feeds, streaks, or meal-planning theater. Just practical tools that make the week easier.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature feature-wide feature-plan">
+              <div class="feature-copy"><span class="mini-label">MEAL PLANNER</span><h3>See the whole week at a glance.</h3><p>Plan breakfast, lunch, and dinner. Assign a cook, choose a time, and turn leftovers into tomorrow’s plan.</p></div>
+              <div class="mini-week" aria-hidden="true">
+                <div><small>MON</small><span>🍲</span><b>Soup night</b></div>
+                <div class="selected"><small>TUE</small><span>🌮</span><b>Taco bowls</b></div>
+                <div><small>WED</small><span>🍝</span><b>Pasta</b></div>
+                <div><small>THU</small><span>🥡</span><b>Leftovers</b></div>
+              </div>
+            </article>
+
+            <article class="feature feature-print">
+              <div class="feature-copy"><span class="mini-label">FRIDGE READY</span><h3>A plan everyone can see.</h3><p>Print a clean, high-contrast weekly or monthly calendar on one sheet.</p></div>
+              <div class="paper" aria-hidden="true"><b>THIS WEEK</b><span>MON&nbsp;&nbsp; Tomato pasta</span><span>TUE&nbsp;&nbsp;&nbsp; Taco bowls</span><span>WED&nbsp;&nbsp; Vegetable soup</span><i></i></div>
+            </article>
+
+            <article class="feature feature-grocery">
+              <div class="feature-copy"><span class="mini-label">SMART GROCERY LIST</span><h3>From plan to aisle.</h3><p>Ingredients are combined, grouped by aisle, and checked against pantry staples.</p></div>
+              <ul class="grocery-preview" aria-hidden="true"><li><span class="check done">✓</span><s>Avocados</s><small>Produce</small></li><li><span class="check"></span><b>Black beans</b><small>Canned goods</small></li><li><span class="check"></span><b>Corn tortillas</b><small>Bakery</small></li></ul>
+            </article>
+
+            <article class="feature feature-wide feature-calendar">
+              <div class="feature-copy"><span class="mini-label">GOOGLE CALENDAR</span><h3>Dinner shows up where life already happens.</h3><p>Sync meal times, cook assignments, prep details, and ingredients to your shared family calendar.</p></div>
+              <div class="calendar-preview" aria-hidden="true"><div class="cal-date"><small>SEP</small><strong>1</strong></div><div><b>Weeknight taco bowls</b><span>5:30 PM · Dinner · Dad is cooking</span></div><span class="synced">✓ Synced</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="self-host section" id="self-host">
+        <div class="shell host-grid">
+          <div class="host-copy">
+            <p class="kicker light">Your kitchen. Your data.</p>
+            <h2>Made to live at home.</h2>
+            <p>FamilyPlates is open-source and self-hosted. Run it on your own hardware, keep your family data under your control, and shape it around the way your household works.</p>
+            <ul>
+              <li><span aria-hidden="true">✓</span> Single-container Docker setup</li>
+              <li><span aria-hidden="true">✓</span> SQLite with persistent storage</li>
+              <li><span aria-hidden="true">✓</span> Built with Rails, Hotwire, and Tailwind CSS</li>
+            </ul>
+            <a class="button button-light" href="https://github.com/Elevate08/familyplates#-quick-start-docker-compose">Read the setup guide <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="terminal" aria-label="Docker Compose example">
+            <div class="terminal-bar"><span></span><span></span><span></span><small>docker-compose.yml</small></div>
+            <pre><code><span class="code-dim">services:</span>
+  <span class="code-key">familyplates:</span>
+    image: <span class="code-value">ghcr.io/elevate08/</span>
+      <span class="code-value">familyplates:latest</span>
+    ports:
+      - <span class="code-value">"3000:80"</span>
+    volumes:
+      - <span class="code-value">familyplates_data:/rails/storage</span></code></pre>
+            <div class="terminal-command"><span>$</span> docker compose up -d <b>↵</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing section">
+        <div class="shell closing-inner">
+          <p class="kicker">Dinner can be the easy part</p>
+          <h2>A calmer week starts at the table.</h2>
+          <p>Bring the plan, the list, and the family together with FamilyPlates.</p>
+          <a class="button button-primary" href="https://github.com/Elevate08/familyplates">Explore the project on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-row">
+        <a class="brand" href="#top"><img src="icon.svg" alt="" width="32" height="32"><span>FamilyPlates</span></a>
+        <p>Open source meal planning for real family life.</p>
+        <div><a href="https://github.com/Elevate08/familyplates">GitHub</a><a href="https://github.com/Elevate08/familyplates/tree/master/docs">Documentation</a></div>
+      </div>
+    </footer>
+  </body>
+</html>
