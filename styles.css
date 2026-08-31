@@ -1,9 +1,6 @@
-/* ==========================================================================
-   FamilyPlates Design System & Landing Page Styles
-   Warm kitchen craft meets modern software engineering
-   ========================================================================== */
+/* FamilyPlates — design system & landing page styles */
 
-/* --- CSS Variables & Color Tokens --- */
+/* --- Tokens --- */
 :root {
   --canvas: #FAF8F5;
   --canvas-subtle: #F3EFEA;
@@ -61,7 +58,7 @@
   --header-height: 76px;
 }
 
-/* --- Dark Theme Overrides --- */
+/* --- Dark theme --- */
 [data-theme="dark"] {
   --canvas: #0E141B;
   --canvas-subtle: #141C25;
@@ -107,7 +104,7 @@
   --shadow-xl: 0 28px 68px rgba(0, 0, 0, 0.58);
 }
 
-/* --- Base & Reset --- */
+/* --- Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -173,7 +170,7 @@ code, pre {
   outline-offset: 3px;
 }
 
-/* --- Typography Utilities --- */
+/* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
   color: var(--ink-primary);
   text-wrap: balance;
@@ -236,7 +233,7 @@ h3 {
   line-height: 1.6;
 }
 
-/* --- Buttons & Interactive Elements --- */
+/* --- Buttons --- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -340,7 +337,7 @@ h3 {
   transform: translateX(4px);
 }
 
-/* --- Sticky Header & Navbar --- */
+/* --- Header --- */
 .site-header {
   position: sticky;
   top: 0;
@@ -454,7 +451,7 @@ h3 {
   display: block;
 }
 
-/* --- Hero Section --- */
+/* --- Hero --- */
 .hero {
   position: relative;
   overflow: hidden;
@@ -584,7 +581,7 @@ h3 {
   flex-shrink: 0;
 }
 
-/* --- Clean Studio Image Frame (No Movement, Generous Spacing) --- */
+/* --- Image frame --- */
 .hero-stage {
   position: relative;
 }
@@ -619,7 +616,7 @@ h3 {
   border-radius: inherit;
 }
 
-/* --- Proof & Value Proposition Ticker --- */
+/* --- Proof ticker --- */
 .stats-strip {
   padding: 36px 0;
   background-color: var(--canvas-subtle);
@@ -659,12 +656,12 @@ h3 {
   font-weight: 600;
 }
 
-/* --- Section Global Structure --- */
+/* --- Sections --- */
 .section {
   padding: 108px 0;
 }
 
-/* --- Steps Section (How It Works) --- */
+/* --- How It Works --- */
 .steps-section {
   background-color: var(--canvas);
 }
@@ -751,7 +748,7 @@ h3 {
   font-weight: 700;
 }
 
-/* --- Interactive Showcase / Product Tour --- */
+/* --- Product tour --- */
 .showcase-section {
   background-color: var(--canvas-subtle);
   border-block: 1px solid var(--border-subtle);
@@ -885,7 +882,7 @@ h3 {
 }
 
 
-/* --- Feature Bento Grid --- */
+/* --- Bento grid --- */
 .features-grid-section {
   background-color: var(--canvas);
 }
@@ -958,7 +955,7 @@ h3 {
   line-height: 1.62;
 }
 
-/* --- Quick Start & Self-Hosting (Dark Section) --- */
+/* --- Quick Start (dark) --- */
 .quickstart-section {
   background-color: var(--dark-panel);
   color: #FFFFFF;
@@ -1013,7 +1010,7 @@ h3 {
   gap: 16px;
 }
 
-/* Terminal Card */
+/* Terminal card */
 .terminal-card {
   position: relative;
   background-color: var(--dark-panel-surface);
@@ -1111,7 +1108,7 @@ h3 {
   line-height: 1.7;
 }
 
-/* Syntax Highlighting Tokens */
+/* Syntax tokens */
 .token-comment  { color: #6D8E78; font-style: italic; }
 .token-key      { color: #F8B583; font-weight: 600; }
 .token-property { color: #A0CBE8; }
@@ -1141,7 +1138,7 @@ h3 {
   color: #F8B583;
 }
 
-/* --- Network Exposure Notice (Quick Start) --- */
+/* --- Exposure notice --- */
 .exposure-notice {
   display: flex;
   align-items: flex-start;
@@ -1197,7 +1194,7 @@ h3 {
   white-space: nowrap;
 }
 
-/* --- Closing Call to Action Section --- */
+/* --- Closing CTA --- */
 .closing-section {
   background-color: var(--canvas);
 }
@@ -1245,7 +1242,7 @@ h3 {
   gap: 16px;
 }
 
-/* --- Site Footer --- */
+/* --- Footer --- */
 .site-footer {
   background-color: var(--canvas-subtle);
   border-top: 1px solid var(--border-subtle);
@@ -1329,11 +1326,9 @@ h3 {
   color: var(--border-strong);
 }
 
-/* ==========================================================================
-   Responsive Breakpoints & Adaptations
-   ========================================================================== */
+/* Responsive breakpoints */
 
-/* --- Tablet / Medium Screens (<= 992px) --- */
+/* --- Tablet (<= 992px) --- */
 @media (max-width: 992px) {
   .hero-grid,
   .quickstart-grid {
@@ -1381,7 +1376,7 @@ h3 {
   }
 }
 
-/* --- Mobile / Small Screens (<= 768px) --- */
+/* --- Mobile (<= 768px) --- */
 @media (max-width: 768px) {
   .exposure-notice {
     margin-top: 40px;
@@ -1459,7 +1454,7 @@ h3 {
   }
 }
 
-/* --- Reduced Motion Preferences --- */
+/* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

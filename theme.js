@@ -1,8 +1,6 @@
-/**
- * FamilyPlates Website - Theme & Interactive Features
- */
+/* FamilyPlates — theme toggle and interactive widgets */
 
-// --- Theme Toggle Logic ---
+// --- Theme toggle ---
 const themeButton = document.querySelector(".theme-toggle");
 const themeColor = document.querySelector("#theme-color");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -48,7 +46,7 @@ systemTheme.addEventListener("change", () => {
 
 applyTheme(getResolvedTheme());
 
-// --- Interactive Feature Showcase Tabs ---
+// --- Showcase tabs ---
 const tabButtons = document.querySelectorAll(".showcase-tab");
 const tabPanels = document.querySelectorAll(".showcase-panel");
 
@@ -97,7 +95,7 @@ tabButtons.forEach((tab) => {
   });
 });
 
-// --- Code Snippet Copy Functionality ---
+// --- Copy buttons ---
 document.querySelectorAll(".copy-btn").forEach((button) => {
   button.addEventListener("click", async () => {
     const targetSelector = button.getAttribute("data-copy-target");
@@ -133,7 +131,7 @@ document.querySelectorAll(".copy-btn").forEach((button) => {
   });
 });
 
-// --- Terminal Tab Switcher (Compose vs Run) ---
+// --- Terminal tabs ---
 const terminalTabs = document.querySelectorAll(".terminal-tab");
 const terminalSnippets = document.querySelectorAll(".terminal-snippet");
 

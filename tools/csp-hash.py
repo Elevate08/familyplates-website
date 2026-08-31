@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 """Keep the CSP script-src hash in sync with the inline <script> in index.html.
 
-The Content-Security-Policy meta tag in index.html allowlists the inline
-theme-init script by SHA-256. Editing that script — including its indentation
-or line endings — invalidates the hash, and the browser then silently blocks
-it: the page still renders, but the saved theme stops applying on first paint.
+Editing the inline theme script — even its whitespace — invalidates the hash.
+The browser then blocks it silently: the page renders, but the saved theme
+stops applying on first paint.
 
-Usage:
-    ./tools/csp-hash.py            # same as --check
-    ./tools/csp-hash.py --check    # exit 1 if the CSP is stale
-    ./tools/csp-hash.py --write    # rewrite the CSP with the current hashes
+    --check  exit 1 if stale (default)
+    --write  rewrite the CSP with current hashes
 """
 
 import argparse
@@ -21,14 +18,14 @@ from pathlib import Path
 
 HTML = Path(__file__).resolve().parent.parent / "index.html"
 
-# Inline scripts only: a <script> tag with no src= attribute.
+# Inline scripts only (no src= attribute).
 INLINE_SCRIPT = re.compile(rb"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", re.S)
-# The script-src directive inside the CSP meta tag.
+# The script-src directive in the CSP meta tag.
 SCRIPT_SRC = re.compile(r"(script-src\s+'self')((?:\s+'sha256-[A-Za-z0-9+/=]+')*)", re.S)
 
 
 def inline_hashes(raw: bytes) -> list[str]:
-    """SHA-256 of each inline script body, base64-encoded, as CSP source values."""
+    """Each inline script body as a CSP source value."""
     return [
         "'sha256-%s'" % base64.b64encode(hashlib.sha256(body).digest()).decode()
         for body in INLINE_SCRIPT.findall(raw)

@@ -6,16 +6,10 @@
     <meta name="color-scheme" content="light dark">
 
     <!--
-      Content Security Policy (defence in depth).
-      GitHub Pages cannot set response headers, so this is delivered as a meta tag.
-      Caveat: `frame-ancestors` and `report-uri` are IGNORED in meta-delivered CSP,
-      so clickjacking cannot be blocked from here. Acceptable: this page has no
-      authenticated state or state-changing action to hijack.
-
-      The script-src hash covers the inline theme-init script below. If you edit
-      that script — even its whitespace — regenerate the hash:
-          ./tools/csp-hash.py --check     # verify
-          ./tools/csp-hash.py --write     # verify and update in place
+      Delivered as meta because GitHub Pages can't set headers.
+      Caveat: frame-ancestors and report-uri are ignored in meta CSP.
+      script-src pins the inline theme script by hash — after editing it,
+      run ./tools/csp-hash.py --write
     -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
@@ -34,7 +28,7 @@
     <meta name="description" content="Eliminate daily dinner chaos. Collaborative weekly meal planning, aisle-organized grocery lists, 1-page fridge calendar printouts, and real-time Google Calendar sync. Open source, self-hostable, and installable on phones as a PWA.">
     <meta id="theme-color" name="theme-color" content="#faf8f5">
     
-    <!-- Open Graph / Social Meta -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://familyplates.org/">
     <meta property="og:title" content="FamilyPlates — Effortless, Self-Hosted Family Meal Planning">
@@ -47,12 +41,12 @@
     <link rel="canonical" href="https://familyplates.org/">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
 
-    <!-- Fonts: Plus Jakarta Sans for UI + Newsreader for Warm Editorial Headlines + JetBrains Mono for Code -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Early Theme Initialization to Prevent FOUC -->
+    <!-- Set theme before first paint (avoids FOUC) -->
     <script>
       (function () {
         var saved = localStorage.getItem("familyplates-website-theme");
@@ -69,7 +63,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- Sticky Navigation Bar -->
+    <!-- Nav -->
     <header class="site-header">
       <div class="shell nav-container">
         <a class="brand" href="#top" aria-label="FamilyPlates home">
@@ -87,11 +81,9 @@
 
         <div class="nav-actions">
           <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
-            <!-- Moon Icon (Light Mode) -->
             <svg class="theme-icon theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
             </svg>
-            <!-- Sun Icon (Dark Mode) -->
             <svg class="theme-icon theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4"></circle>
               <path d="M12 2v2"></path>
@@ -117,7 +109,7 @@
     </header>
 
     <main id="main">
-      <!-- Hero Section -->
+      <!-- Hero -->
       <section class="hero" id="top">
         <div class="hero-ambient-glow" aria-hidden="true"></div>
         <div class="shell hero-grid">
@@ -170,7 +162,7 @@
             </ul>
           </div>
 
-          <!-- Hero Image Showcase (Clean Studio Frame with Generous Padding, No Movement, No OS Chrome) -->
+          <!-- Hero image -->
           <div class="hero-stage">
             <div class="app-preview-card hero-preview-card">
               <div class="app-preview-canvas">
@@ -181,7 +173,7 @@
         </div>
       </section>
 
-      <!-- Proof & Value Proposition Ticker -->
+      <!-- Proof ticker -->
       <section class="stats-strip" aria-label="Key highlights">
         <div class="shell stats-grid">
           <div class="stat-item">
@@ -207,7 +199,7 @@
         </div>
       </section>
 
-      <!-- How It Works Section -->
+      <!-- How It Works -->
       <section class="steps-section section" id="how-it-works">
         <div class="shell">
           <div class="section-header center-header">
@@ -279,7 +271,7 @@
         </div>
       </section>
 
-      <!-- Interactive Product Tour Showcase -->
+      <!-- Product tour -->
       <section class="showcase-section section" id="showcase">
         <div class="shell">
           <div class="section-header center-header">
@@ -288,7 +280,7 @@
             <p class="section-subtext">Explore the core features designed to keep your kitchen organized, your grocery trips quick, and your entire household on the same page.</p>
           </div>
 
-          <!-- Tab Navigation Bar -->
+          <!-- Tabs -->
           <div class="showcase-tabs-wrap">
             <div class="showcase-tabs" role="tablist" aria-label="FamilyPlates feature views">
               <button class="showcase-tab active" role="tab" id="tab-planner" aria-selected="true" aria-controls="panel-planner" data-tab="planner">
@@ -318,9 +310,9 @@
             </div>
           </div>
 
-          <!-- Showcase Panels -->
+          <!-- Panels -->
           <div class="showcase-container">
-            <!-- Panel 1: Planner -->
+            <!-- Planner -->
             <div class="showcase-panel active" id="panel-planner" role="tabpanel" aria-labelledby="tab-planner">
               <div class="panel-grid">
                 <div class="panel-copy">
@@ -354,7 +346,7 @@
               </div>
             </div>
 
-            <!-- Panel 2: Recipes -->
+            <!-- Recipes -->
             <div class="showcase-panel" id="panel-recipes" role="tabpanel" aria-labelledby="tab-recipes" hidden>
               <div class="panel-grid">
                 <div class="panel-copy">
@@ -388,7 +380,7 @@
               </div>
             </div>
 
-            <!-- Panel 3: Printout -->
+            <!-- Printout -->
             <div class="showcase-panel" id="panel-printout" role="tabpanel" aria-labelledby="tab-printout" hidden>
               <div class="panel-grid">
                 <div class="panel-copy">
@@ -422,7 +414,7 @@
               </div>
             </div>
 
-            <!-- Panel 4: Grocery List -->
+            <!-- Grocery List -->
             <div class="showcase-panel" id="panel-grocery" role="tabpanel" aria-labelledby="tab-grocery" hidden>
               <div class="panel-grid">
                 <div class="panel-copy">
@@ -456,7 +448,7 @@
               </div>
             </div>
 
-            <!-- Panel 5: Pantry -->
+            <!-- Pantry -->
             <div class="showcase-panel" id="panel-pantry" role="tabpanel" aria-labelledby="tab-pantry" hidden>
               <div class="panel-grid">
                 <div class="panel-copy">
@@ -493,7 +485,7 @@
         </div>
       </section>
 
-      <!-- Feature Bento Grid (Deep Dive) -->
+      <!-- Bento grid -->
       <section class="features-grid-section section" id="features">
         <div class="shell">
           <div class="section-header center-header">
@@ -503,7 +495,7 @@
           </div>
 
           <div class="bento-grid">
-            <!-- Bento Card 1: GCal Sync -->
+            <!-- GCal Sync -->
             <article class="bento-card bento-card-highlight">
               <div class="bento-icon bento-icon-blue">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -518,7 +510,7 @@
               <p>FamilyPlates writes scheduled meals, assigned cooks, preparation times, and ingredients straight to your shared family Google Calendar via Google Service Account in the background.</p>
             </article>
 
-            <!-- Bento Card 2: Web Scraper -->
+            <!-- Web Scraper -->
             <article class="bento-card">
               <div class="bento-icon bento-icon-orange">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -532,7 +524,7 @@
               <p>Drop in a link from NYT Cooking, AllRecipes, Serious Eats, or a favorite food blog. FamilyPlates pulls out the title, servings, cook time, and ingredients &mdash; and leaves the life story behind.</p>
             </article>
 
-            <!-- Bento Card 3: Profiles & Themes -->
+            <!-- Profiles & Themes -->
             <article class="bento-card">
               <div class="bento-icon bento-icon-green">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -547,7 +539,7 @@
               <p>Give every household member their own avatar and select from 12 warm kitchen accent color palettes (Terracotta, Sage, Slate, Berry, Tuscan Sun, and more).</p>
             </article>
 
-            <!-- Bento Card 4: PIN Security -->
+            <!-- PIN Security -->
             <article class="bento-card">
               <div class="bento-icon bento-icon-purple">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -560,7 +552,7 @@
               <p>Kids can browse recipes and submit cravings freely on tablets, while meal schedule edits, roster changes, and system settings require a secure 4-digit PIN.</p>
             </article>
 
-            <!-- Bento Card 5: Mobile PWA -->
+            <!-- Mobile PWA -->
             <article class="bento-card">
               <div class="bento-icon bento-icon-teal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -573,7 +565,7 @@
               <p>FamilyPlates is a Progressive Web App: open it once on iPhone or Android and tap <em>Add to Home Screen</em>. It launches full screen with its own icon &mdash; no app store, no install file &mdash; and the aisle-by-aisle grocery checklist is built for one-handed tapping in the store.</p>
             </article>
 
-            <!-- Bento Card 6: Zero Bloat -->
+            <!-- Zero Bloat -->
             <article class="bento-card">
               <div class="bento-icon bento-icon-amber">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -589,7 +581,7 @@
       </section>
 
 
-      <!-- Self-Hosting / Quick Start Section -->
+      <!-- Quick Start -->
       <section class="quickstart-section section" id="quick-start">
         <div class="shell quickstart-grid">
           <div class="quickstart-copy">
@@ -630,7 +622,7 @@
             </div>
           </div>
 
-          <!-- Terminal Block with Configuration Tabs -->
+          <!-- Terminal tabs -->
           <div class="terminal-card">
             <div class="terminal-header">
               <div class="terminal-tabs" role="tablist" aria-label="Deployment method tabs">
@@ -650,7 +642,6 @@
               </button>
             </div>
 
-            <!-- Snippet 1: Docker Compose File -->
             <div class="terminal-snippet active" id="snippet-compose">
               <pre><code><span class="token-comment"># docker-compose.yml</span>
 <span class="token-comment"># Generate your own secret first — never ship the placeholder:</span>
@@ -675,7 +666,6 @@
     <span class="token-property">driver:</span> <span class="token-string">local</span></code></pre>
             </div>
 
-            <!-- Snippet 2: Quick Launch via curl -->
             <div class="terminal-snippet" id="snippet-curl" hidden>
               <pre><code><span class="token-comment"># 1. Download official docker-compose.yml from repository</span>
 curl -sSL https://raw.githubusercontent.com/Elevate08/familyplates/master/docker-compose.yml -o docker-compose.yml
@@ -687,7 +677,6 @@ echo "SECRET_KEY_BASE=$(openssl rand -hex 64)" &gt; .env
 docker compose up -d</code></pre>
             </div>
 
-            <!-- Snippet 3: Docker Run Single Command -->
             <div class="terminal-snippet" id="snippet-run" hidden>
               <pre><code><span class="token-comment"># Single command docker run</span>
 docker run -d \
@@ -728,7 +717,7 @@ docker run -d \
         </div>
       </section>
 
-      <!-- Closing Call to Action Section -->
+      <!-- Closing CTA -->
       <section class="closing-section section">
         <div class="shell closing-container">
           <div class="closing-card">
@@ -757,7 +746,7 @@ docker run -d \
       </section>
     </main>
 
-    <!-- Site Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="shell footer-grid">
         <div class="footer-brand-col">
