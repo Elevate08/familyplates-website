@@ -379,17 +379,6 @@ h3 {
   color: var(--ink-primary);
 }
 
-.brand-badge {
-  padding: 3px 8px;
-  border-radius: 999px;
-  background-color: var(--accent-green-subtle);
-  color: var(--accent-green);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .nav-links {
   display: flex;
   align-items: center;
