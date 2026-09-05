@@ -130,23 +130,3 @@ document.querySelectorAll(".copy-btn").forEach((button) => {
     }
   });
 });
-
-// --- Terminal tabs ---
-const terminalTabs = document.querySelectorAll(".terminal-tab");
-const terminalSnippets = document.querySelectorAll(".terminal-snippet");
-
-terminalTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const targetId = tab.getAttribute("data-terminal-tab");
-    terminalTabs.forEach((t) => {
-      const isActive = t === tab;
-      t.classList.toggle("active", isActive);
-      t.setAttribute("aria-selected", isActive ? "true" : "false");
-    });
-    terminalSnippets.forEach((snippet) => {
-      const isMatch = snippet.id === `snippet-${targetId}`;
-      snippet.hidden = !isMatch;
-      snippet.classList.toggle("active", isMatch);
-    });
-  });
-});
